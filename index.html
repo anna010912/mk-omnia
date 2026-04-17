@@ -5,42 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MK-Omnia.de</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background: #f5f1e8;
-    color: #222;
-    scroll-behavior: smooth;
+    color: #1c1c1c;
 }
 
 /* HEADER */
 header {
     position: fixed;
     width: 100%;
-    background: #000;
-    padding: 20px 40px;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #d4af37;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 42px;
+    width: auto;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
 
 nav a {
-    margin-left: 20px;
+    margin-left: 18px;
     text-decoration: none;
     color: #eee;
+    font-weight: 400;
     transition: 0.3s;
 }
 
@@ -48,124 +64,160 @@ nav a:hover {
     color: #d4af37;
 }
 
+/* MOBILE MENU */
 .menu-toggle {
     display: none;
-    font-size: 24px;
-    color: white;
+    font-size: 26px;
+    color: #fff;
     cursor: pointer;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: url('https://source.unsplash.com/1600x900/?construction,craftsman') center/cover no-repeat;
+    background: url('https://source.unsplash.com/1600x900/?craftsman,construction') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     padding: 20px;
 }
 
-.hero-content {
-    background: rgba(255,255,255,0.9);
+.hero-overlay {
+    background: rgba(0,0,0,0.55);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-box {
+    text-align: center;
+    color: white;
+    max-width: 700px;
     padding: 40px;
-    border-radius: 20px;
+    border: 1px solid rgba(212,175,55,0.3);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+.hero-box h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
 }
 
-.hero p {
-    margin-bottom: 20px;
+.hero-box p {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 25px;
 }
 
-/* BUTTON */
 .btn {
-    padding: 12px 25px;
-    border: none;
-    background: #d4af37;
-    color: black;
+    padding: 12px 24px;
     border-radius: 30px;
+    border: none;
     cursor: pointer;
+    font-weight: 600;
     transition: 0.3s;
     margin: 5px;
+    background: #d4af37;
+    color: #000;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .btn:hover {
-    background: #b8962e;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    background: #b8922f;
 }
 
 /* SECTIONS */
 .section {
-    padding: 80px 40px;
+    padding: 90px 40px;
     max-width: 1200px;
     margin: auto;
 }
 
 .section h2 {
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
 }
 
 /* CARDS */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 22px;
 }
 
 .card {
-    background: white;
+    background: #fff;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
     text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
 
 .card h3 {
     margin-bottom: 10px;
+    color: #111;
 }
 
-/* TESTIMONIALS */
+.card p {
+    color: #555;
+}
+
+/* STARS */
 .stars {
-    color: gold;
+    color: #d4af37;
     margin-bottom: 10px;
 }
 
-/* FORM */
+/* CONTACT */
 form {
     display: flex;
     flex-direction: column;
+    max-width: 600px;
+    margin: auto;
 }
 
-form input, form textarea {
-    margin-bottom: 15px;
+input, textarea {
     padding: 12px;
+    margin-bottom: 15px;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    outline: none;
 }
 
 /* FOOTER */
 footer {
-    background: #000;
-    color: #ccc;
-    padding: 30px;
+    background: #0b0b0b;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
     font-size: 14px;
+    border-top: 1px solid rgba(212,175,55,0.2);
 }
 
 /* MOBILE */
 @media(max-width:768px){
     nav {
         display: none;
-        flex-direction: column;
-        background: black;
         position: absolute;
-        top: 70px;
+        top: 65px;
         right: 20px;
-        padding: 20px;
-        border-radius: 10px;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 12px;
     }
 
     nav.active {
@@ -175,6 +227,10 @@ footer {
     .menu-toggle {
         display: block;
     }
+
+    .hero-box h1 {
+        font-size: 32px;
+    }
 }
 </style>
 </head>
@@ -182,8 +238,12 @@ footer {
 <body>
 
 <header>
-    <div class="logo">MK Omnia</div>
+    <div class="logo">
+        <img src="logo.png" alt="MK Omnia Logo">
+    </div>
+
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
     <nav id="nav">
         <a href="#home">Start</a>
         <a href="#services">Leistungen</a>
@@ -195,48 +255,50 @@ footer {
 </header>
 
 <section class="hero" id="home">
-    <div class="hero-content">
-        <h1>MK-Omnia.de</h1>
-        <p>Ihr vielseitiger Handwerker für Garten- und Landschaftsbau, Innenausbau und mehr.</p>
-        <button class="btn">Jetzt anfragen</button>
-        <button class="btn">Leistungen ansehen</button>
+    <div class="hero-overlay">
+        <div class="hero-box">
+            <h1>MK Omnia</h1>
+            <p>Ihr vielseitiger Handwerksbetrieb für Garten- und Landschaftsbau, Innenausbau, Montagearbeiten und mehr.</p>
+            <button class="btn">Anfrage starten</button>
+            <button class="btn">Leistungen ansehen</button>
+        </div>
     </div>
 </section>
 
 <section class="section" id="services">
-    <h2>Unsere Leistungen</h2>
+    <h2>Leistungen</h2>
     <div class="cards">
         <div class="card">
-            <h3>🌿 Garten- und Landschaftsbau</h3>
-            <p>Planung, Gestaltung und Pflege von Außenanlagen.</p>
+            <h3>🌿 Garten- & Landschaftsbau</h3>
+            <p>Professionelle Außenanlagen, Pflege und Gestaltung.</p>
         </div>
         <div class="card">
             <h3>🏠 Innenausbau</h3>
-            <p>Renovierung, Trockenbau und individuelle Raumgestaltung.</p>
+            <p>Trockenbau, Renovierung und Raumgestaltung.</p>
         </div>
         <div class="card">
             <h3>🔧 Montagearbeiten</h3>
-            <p>Professionelle Montage von Möbeln und Bauelementen.</p>
+            <p>Möbel-, Bau- und Elementmontage aller Art.</p>
         </div>
         <div class="card">
-            <h3>🛠️ Allround-Handwerk</h3>
-            <p>Vielseitige handwerkliche Arbeiten aus einer Hand.</p>
+            <h3>🛠 Allround-Handwerk</h3>
+            <p>Flexible Lösungen für individuelle Projekte.</p>
         </div>
     </div>
 </section>
 
 <section class="section" id="prices">
-    <h2>Preise & Pakete</h2>
+    <h2>Pakete</h2>
     <div class="cards">
         <div class="card">
             <h3>Basic</h3>
             <p>ab 199€</p>
-            <p>Kleinere Arbeiten & Reparaturen</p>
+            <p>Kleine Arbeiten & Reparaturen</p>
         </div>
         <div class="card">
             <h3>Standard</h3>
             <p>ab 799€</p>
-            <p>Mittlere Projekte & Ausbauarbeiten</p>
+            <p>Mittlere Projekte & Ausbau</p>
         </div>
         <div class="card">
             <h3>Premium</h3>
@@ -251,15 +313,15 @@ footer {
     <div class="cards">
         <div class="card">
             <div class="stars">★★★★★</div>
-            <p>"Top Handwerker! Sehr vielseitig und zuverlässig."</p>
+            <p>"Sehr professionell und zuverlässig!"</p>
         </div>
         <div class="card">
             <div class="stars">★★★★★</div>
-            <p>"Saubere Arbeit und faire Preise."</p>
+            <p>"Top Qualität und schnelle Umsetzung."</p>
         </div>
         <div class="card">
             <div class="stars">★★★★★</div>
-            <p>"Alles aus einer Hand – absolut empfehlenswert!"</p>
+            <p>"Alles aus einer Hand – absolut empfehlenswert."</p>
         </div>
     </div>
 </section>
@@ -276,10 +338,12 @@ footer {
 
 <section class="section" id="imprint">
     <h2>Impressum</h2>
-    <p><strong>MK-Omnia</strong><br>
-    Max Kiessling<br>
-    Friedrich-Engels-Straße 27<br>
-    07545 Gera</p>
+    <p>
+        <strong>MK-Omnia</strong><br>
+        Max Kiessling<br>
+        Friedrich-Engels-Straße 27<br>
+        07545 Gera
+    </p>
 
     <br>
 
@@ -288,23 +352,21 @@ footer {
 
     <br>
 
-    <p><strong>Haftungsausschluss</strong></p>
-    <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
-    Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+    <p><strong>Haftungsausschluss</strong><br>
+    Trotz sorgfältiger Prüfung übernehmen wir keine Haftung für Inhalte externer Links.</p>
 
     <br>
 
-    <p><strong>Urheberrecht</strong></p>
-    <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
-    dem deutschen Urheberrecht.</p>
+    <p><strong>Urheberrecht</strong><br>
+    Inhalte dieser Website unterliegen dem deutschen Urheberrecht.</p>
 </section>
 
 <footer>
-    <p>© 2026 MK-Omnia.de – Alle Rechte vorbehalten</p>
+    © 2026 MK Omnia – Alle Rechte vorbehalten
 </footer>
 
 <script>
-function toggleMenu() {
+function toggleMenu(){
     document.getElementById("nav").classList.toggle("active");
 }
 </script>
